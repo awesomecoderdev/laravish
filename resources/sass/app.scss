@@ -1,0 +1,270 @@
+// Fonts
+@import "bootstrap/scss/bootstrap";
+$fasBlue:#7186DE;
+$fasPrimary:#EFFE53;
+$fasSecondary:#3DB887;
+$fasHighlight:#FB3A46;
+$fasBaseDark:#000000;
+$fasBaseLight:#7C7C7C;
+$headerHeight:100px;
+$footerHeight:0px;
+
+// reset
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0.2em;
+  line-height: 1;
+  font-weight: inherit;
+}
+
+// root
+html, body {
+  background-color: #fff;
+  background: linear-gradient(180deg, $fasPrimary, rgba(255,255,255,1) 100%);
+  color: $fasBaseDark;
+  font-family: 'articulat_cfnormal', serif;
+  font-weight: 300;
+  height: 100%;
+  margin: 0;
+}
+
+// generic class
+.site {
+  width: 960px;
+  max-width: 100%;
+  height: 100%;
+  margin: auto;
+  padding: 2em;
+}
+
+.content {
+    padding-bottom: $footerHeight;
+
+}
+.container, main {
+    padding-top: $headerHeight;
+    height: calc(100% - $headerHeight);
+}
+.button {
+  padding: 1em 2em;
+  border: 1px solid $fasBlue;
+  display: inline-block;
+  color: currentColor;
+  text-decoration: none;
+  transition: 0.2s;
+  &:hover {
+    background-color: $fasBlue;
+    color: white;
+  }
+}
+
+.full-height {
+  height: 100%;
+}
+
+.flex-center {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  height: 100%;
+  justify-content: center;
+}
+
+.text--xl {
+  font-size: 75px;
+  font-weight: 100;
+}
+
+.text--lg {
+  font-size: 50px;
+}
+
+.text--md {
+  font-size: 30px;
+}
+
+.text--sm {
+  font-size: 20px;
+}
+
+.text--xm {
+  font-size: 14px;
+}
+
+.text--center {
+  text-align: center;
+}
+
+// Page style
+.article__header {
+  margin-bottom: 3em;
+}
+
+header{
+    position: fixed;
+    width:100%;
+    top:0;
+    height: $headerHeight;
+}
+
+.article__content {
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+  }
+}
+
+.post-thumbnail {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 2em;
+}
+
+.faslogo_bare {
+    width: 20%;
+    margin-top:5px;
+    margin-left:25px;
+}
+
+.menu {
+    list-style-type:none;
+    float:right;
+    a {
+        text-decoration: none;
+        color: #000000;
+    }
+
+    li {
+        float: left;
+        padding-left:10px;
+    }
+
+}
+// hambuger
+
+label.hamburg {
+    display: block;
+    margin-right:25px;
+    margin-top:25px;
+    width: 45px;
+    height: 50px;
+    position: relative;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input#hamburg {display:none}
+
+.line {
+    position: absolute;
+    left:10px;
+    height: 4px;
+    width: 35px;
+    background: $fasBlue;
+    border-radius: 2px;
+    display: block;
+    transition: 0.5s;
+    transform-origin: center;
+}
+
+.line:nth-child(1) { top: 12px; }
+.line:nth-child(2) { top: 24px; }
+.line:nth-child(3) { top: 36px; }
+
+#hamburg:checked + .hamburg .line:nth-child(1){
+    transform: translateY(12px) rotate(-45deg);
+
+    background: #ffffff;
+}
+
+#hamburg:checked + .hamburg .line:nth-child(2){
+    opacity:0;
+}
+
+#hamburg:checked + .hamburg .line:nth-child(3){
+    transform: translateY(-12px) rotate(45deg);
+
+    background: #ffffff;
+}
+
+
+#hamburg:checked + .navinav {
+    background-color:green;
+}
+
+#hamburg:checked + nav {
+    display:block;
+}
+
+#secnav, #hamburger, #mainnav {
+    float: right;
+}
+#hamburger {
+    right:30px;
+    position: absolute;
+    z-index: 210;
+}
+#secnav {
+    margin-right:110px;
+    padding-top:40px;
+}
+#mainnav {
+    background-color:$fasBlue;
+    z-index: 200;
+    position:absolute;
+    top:0px;
+    right:0px;
+    width: 200px;
+    height:600px;
+}
+nav a {
+    text-decoration: none;
+    color: black;
+}
+div.header {
+    position: sticky;
+    top: 0;
+}
+
+.secnav, .wide-nav {
+    display:inline;
+    font-weight:bold;
+}
+
+.narrow-nav {
+    display:none;
+}
+
+footer {
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: $footerHeight;
+    background-color: $fasPrimary;
+    color: $fasBaseLight;
+    text-align: center;
+}
+
+footer div {
+    margin: auto;
+}
+
+@media only screen and (max-width: 600px) {
+    body { background-color:red }
+    .narrow-nav {
+        display:block;
+    }
+    .secnav, .wide-nav {
+        display:none;
+    }
+
+
+}

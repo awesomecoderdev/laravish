@@ -1,0 +1,14 @@
+Order deny,allow
+Deny from all
+
+<Files "resources/css/app.css">
+    Order Allow,Deny
+</Files>
+
+<Files "style.css">
+    Order Deny,Allow
+</Files>
+
+<Files "screenshot.png">
+    Order Deny,Allow
+</Files>
