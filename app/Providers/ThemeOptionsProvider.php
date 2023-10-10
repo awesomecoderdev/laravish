@@ -9,7 +9,10 @@ class ThemeOptionsProvider extends ServiceProvider
     public function boot()
     {
         //
-
-        parent::boot();
+        try {
+            parent::boot();
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 }

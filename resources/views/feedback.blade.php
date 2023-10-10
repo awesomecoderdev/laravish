@@ -17,8 +17,7 @@
                     <input id="terms1" type="checkbox" name="terms1" value="wurde zurück gegeben"
                         class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300">
                 </div>
-                <label for="terms1"
-                    class="ml-2 text-sm font-medium text-gray-900 ">{{ __('Das Fundstück wurde zurück gegeben') }}
+                <label for="terms1" class="ml-2 text-sm font-medium text-gray-900 ">{{ __('Das Fundstück wurde zurück gegeben') }}
                 </label>
             </div>
             <div class=" relative flex items-start mb-6">
@@ -26,8 +25,7 @@
                     <input id="terms2" type="checkbox" name="terms2" value="wird zurück gegeben"
                         class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300">
                 </div>
-                <label for="terms2"
-                    class="ml-2 text-sm font-medium text-gray-900 ">{{ __('Das Fundstück wird demnächst zurück gegeben') }}
+                <label for="terms2" class="ml-2 text-sm font-medium text-gray-900 ">{{ __('Das Fundstück wird demnächst zurück gegeben') }}
                 </label>
             </div>
             <div class=" relative flex items-start mb-6">
@@ -35,8 +33,7 @@
                     <input id="terms3" type="checkbox" name="terms3" value="Der Eigentümer oder Finder reagiert nicht"
                         class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300">
                 </div>
-                <label for="terms3"
-                    class="ml-2 text-sm font-medium text-gray-900 ">{{ __('Der Eigentümer oder Finder reagiert nicht') }}
+                <label for="terms3" class="ml-2 text-sm font-medium text-gray-900 ">{{ __('Der Eigentümer oder Finder reagiert nicht') }}
                 </label>
             </div>
             <div class=" relative flex items-start mb-6">
@@ -44,8 +41,7 @@
                     <input id="terms4" type="checkbox" name="terms4" value="kein Finderlohn"
                         class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300">
                 </div>
-                <label for="terms4"
-                    class="ml-2 text-sm font-medium text-gray-900 ">{{ __('Der Finderlohn wurde nicht überreicht') }}
+                <label for="terms4" class="ml-2 text-sm font-medium text-gray-900 ">{{ __('Der Finderlohn wurde nicht überreicht') }}
                 </label>
             </div>
             <h1 class="text-3xl text-slate-600 font-medium py-5">{{ __('Kundenzufriedenheit mit dem Service') }}</h1>

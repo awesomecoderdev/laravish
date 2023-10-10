@@ -17,7 +17,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         // Change the error reporting level to match WordPress's
-        if ( ! constant("WP_DEBUG")) {
+
+        if ( ! defined("WP_DEBUG")) {
             error_reporting(E_CORE_ERROR | E_CORE_WARNING | E_COMPILE_ERROR | E_ERROR | E_WARNING | E_PARSE | E_USER_ERROR | E_USER_WARNING | E_RECOVERABLE_ERROR);
         }
         $this->shareViewData();
@@ -25,16 +26,19 @@ class AppServiceProvider extends ServiceProvider
 
     public function shareViewData()
     {
-        add_filter('template_include', function ($template) {
+        if(function_exists("add_filter")){
+            add_filter('template_include', function ($template) {
 
-            // Share global view data
-            // view()->share('data_name', 'data');
+                // Share global view data
+                // view()->share('data_name', 'data');
 
-            // Sharing data with specific view
-            // view()->composer(['components.sidebar'], 'App\Http\ViewComposers\SidebarComposer');
+                // Sharing data with specific view
+                // view()->composer(['components.sidebar'], 'App\Http\ViewComposers\SidebarComposer');
 
-            return $template;
-        });
+                return $template;
+            });
+        }
+
     }
 
     /**

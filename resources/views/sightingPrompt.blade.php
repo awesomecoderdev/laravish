@@ -24,18 +24,17 @@
         <form action="{{ route('sichtungen.redir') }}" method="post" class="relative">
             @csrf
             {{ __('Bitte scanne jetzt den QR code auf Deinem gefundenen Gegenstand, oder trage die fas-ID händisch ein, um die Eigentümerin zu kontaktieren:') }}
-            <img src="{{ public_url('/img/teaser.png') }}" alt="Scanning QR code" />
+            <img src="{{ public_url('/img/teaser.png') }}" alt="Scanning QR code"/>
 
             <div class="relative ">
-                <label for="name"
-                    class="block text-sm font-medium text-gray-700">{{ __('Gefundenen Gegenstand identifizieren (Your found fas-ID-Nr.)') }}</label>
+                <label for="name" class="block text-sm font-medium text-gray-700">{{ __('Gefundenen Gegenstand identifizieren (Your found fas-ID-Nr.)') }}</label>
                 <input required="required" name="id" id="id"
-                    class=" mt-1 block w-full  max-w-md rounded-md border-2 shadow-sm  px-4 py-3 " />
+                          class=" mt-1 block w-full  max-w-md rounded-md border-2 shadow-sm  px-4 py-3 "/>
             </div>
 
             <div class="relative py-5 mb-10">
                 <button type="submit"
-                    class="text-sm font-semibold text-white bg-blue-500 rounded-md py-2.5 px-5">{{ __('Senden') }}</button>
+                        class="text-sm font-semibold text-white bg-blue-500 rounded-md py-2.5 px-5">{{ __('Senden') }}</button>
             </div>
 
         </form>

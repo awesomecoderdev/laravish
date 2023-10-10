@@ -26,15 +26,15 @@
                     <tr>
                         <th scope="col" class="py-3 px-6">
                             <div class="flex items-center">
-                                {{ __('Am') }}
-                            </div>
-                        </th>
-                        <th scope="col" class="py-3 px-6">
-                            {{ __('Tag') }}
-                        </th>
-                        <th scope="col" class="py-3 px-6">
-                            {{ __('Mitteilung') }}
-                        </th>
+                            {{ __('Am') }}
+                        </div>
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        {{ __('Tag') }}
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        {{ __('Mitteilung') }}
+                    </th>
                         <th scope="col" class="py-3 px-6">
                             {{ __('Bewertung') }}
                         </th>
@@ -44,13 +44,13 @@
                         <th scope="col" class="py-3 px-6">
                             {{ __('Feedback') }}
                         </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($sightings as $sighting)
-                        <tr class="bg-white border-b ">
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
-                                {{ $sighting->when }}
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($sightings as $sighting)
+                    <tr class="bg-white border-b ">
+                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                            {{ $sighting->when }}
                             </th>
                             <td class="py-4 px-6">
                                 {{ $sighting->tag }}
