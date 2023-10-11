@@ -101,3 +101,41 @@ if (!function_exists("add_odd_even_classes_to_widget")) {
         return $params;
     }
 }
+
+
+/**
+ * Register custom class for nav items.
+ *
+ * @since    1.0.0
+ */
+add_filter("nav_menu_css_class", "add_class_on_nav_menu_list_items", 10, 3);
+function add_class_on_nav_menu_list_items($classes, $item, $args)
+{
+    $classes[] = strtolower($item->title);
+
+    if (!in_array('current-menu-item', $classes)) {
+        if (in_array('current_page_item', $classes)) {
+            $classes[] = 'text-primary-500 dark:text-white';
+        }
+    } else {
+        $classes[] = 'text-primary-500 dark:text-white';
+    }
+
+    return $classes;
+}
+
+
+/**
+ * Register custom class for nav links.
+ *
+ * @since    1.0.0
+ */
+add_filter("nav_menu_link_attributes", "add_class_on_nav_menu_list_items_link", 10, 3);
+function add_class_on_nav_menu_list_items_link($classes, $item, $args)
+{
+    if ('primary' === $args?->theme_location || is_null($args?->theme_location)) {
+        $class =  "relative flex justify-center text-sm font-semibold uppercase items-center text-zinc-900 location-$args?->theme_location ";
+        $classes["class"] = isset($args->has_children) ? "text-sm lending-5 $class" : "$class";
+    }
+    return $classes;
+}

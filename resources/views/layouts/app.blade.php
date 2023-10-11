@@ -19,7 +19,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     {{-- <script defer src="{{ asset('js/alpine.min.js') }}"></script> --}}
-    <script src="https://cdn.tailwindcss.com"></script>
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
     {!! wp_head() !!}
     {{-- start::head --}} @yield('head') {{-- end::head --}}
 
@@ -35,9 +35,9 @@
     </style>
 
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
-    {{-- <script type="module" src="https://foundandscan.co.bd:5173/@vite/client"></script>
+    <script type="module" src="https://foundandscan.co.bd:5173/@vite/client"></script>
     <link rel="stylesheet" href="https://foundandscan.co.bd:5173/resources/css/app.css" />
-    <script type="module" src="https://foundandscan.co.bd:5173/resources/js/app.js"></script> --}}
+    <script type="module" src="https://foundandscan.co.bd:5173/resources/js/app.js"></script>
 </head>
 
 <body {{ body_class('bg-white dark:bg-dark') }}>

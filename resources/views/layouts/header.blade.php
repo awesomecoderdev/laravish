@@ -1,5 +1,5 @@
-<header class="relative max-w-6xl mx-auto h-auto lg:px-0 md:px-4 sm:px-5 xs:px-5 px-4 ">
-    <div class="relative grid grid-cols-2 py-2.5 ">
+<header class="relative bg-primary">
+    <div class="relative max-w-6xl mx-auto h-auto lg:px-0 md:px-4 sm:px-5 xs:px-5 px-4 grid grid-cols-2 py-2.5 ">
         <a href="{{ site_url('/') }}">
             <img class="w-36 h-auto" src="{{ public_url('img/fas_svg.svg') }}" alt="Found and Scan Logo"
                 class="faslogo_bare" />
@@ -11,7 +11,7 @@
                     [
                         'container' => false,
                         'theme_location' => has_nav_menu('primary') ? 'primary' : null,
-                        'menu_class' => 'relative flex space-x-4 text-slate-600 dark:text-white',
+                        'menu_class' => 'relative flex space-x-4 text-zinc-900 dark:text-white',
                     ],
                 ) !!}
             </nav>
