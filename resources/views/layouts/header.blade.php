@@ -1,4 +1,4 @@
-<header class="relative max-w-6xl mx-auto h-auto">
+<header class="relative max-w-6xl mx-auto h-auto lg:px-0 md:px-4 sm:px-5 xs:px-5 px-4 ">
     <div class="relative grid grid-cols-2 py-2.5 ">
         <a href="{{ site_url('/') }}">
             <img class="w-36 h-auto" src="{{ public_url('img/fas_svg.svg') }}" alt="Found and Scan Logo"

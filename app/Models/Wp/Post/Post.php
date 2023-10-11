@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models\Wp\Post;
 
 use Laraish\Support\Wp\Model\Taxonomy;

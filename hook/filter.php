@@ -6,7 +6,7 @@
  * @since    1.0.0
  */
 add_filter("body_class", "mlh_body_class", 99999);
- if (!function_exists("mlh_body_class")) {
+if (!function_exists("mlh_body_class")) {
     function mlh_body_class($classes)
     {
         $include = array(
@@ -82,13 +82,14 @@ add_filter("body_class", "mlh_body_class", 99999);
  *
  * @since    1.0.0
  */
-add_filter('dynamic_sidebar_params','add_odd_even_classes_to_widget');
-if(!function_exists("add_odd_even_classes_to_widget")){
-    function add_odd_even_classes_to_widget($params) {
+add_filter('dynamic_sidebar_params', 'add_odd_even_classes_to_widget');
+if (!function_exists("add_odd_even_classes_to_widget")) {
+    function add_odd_even_classes_to_widget($params)
+    {
         global $my_widget_num;
-        if (!isset($my_widget_num)){
+        if (!isset($my_widget_num)) {
             $my_widget_num = 1;
-        }else{
+        } else {
             $my_widget_num++;
         }
 

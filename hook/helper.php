@@ -90,10 +90,8 @@ if (!function_exists('url_scheme')) {
 if (!function_exists('theme_class')) {
     function theme_class($extra = "")
     {
-        $default = " container mx-auto max-w-6xl relative prose dark:prose-invert min-h-[calc(60vh-112px)] lg:px-4 sm:px-5 xs:px-5 px-4 xl:overflow-visible overflow-hidden";
+        $default = "relative mx-auto max-w-6xl prose dark:prose-invert lg:px-4 sm:px-5 xs:px-5 px-4 xl:overflow-x-hidden";
 
         return "$default $extra";
     }
 }
-
-

@@ -9,14 +9,13 @@
     <link rel="shortcut icon" href="{{ public_url('images/favicon.ico') }}" type="image/vnd.microsoft.icon" />
     <link rel="apple-touch-icon-precomposed" href="{{ public_url('images/apple-touch-icon-precomposed.png') }}">
     <link rel="stylesheet" href="{{ get_stylesheet_uri() }}">
-    <link rel="stylesheet" href="{{ public_url('css/app.css') }}">
+    {{-- <link rel="stylesheet" href="{{ public_url('css/app.css') }}"> --}}
     <link href="{{ public_url('css/fontawesome.css') }}" rel="stylesheet">
     {{-- <link href="{{ public_url('css/brands.css') }}" rel="stylesheet"> --}}
     {{-- <link href="{{ public_url('css/solid.css') }}" rel="stylesheet"> --}}
-    {{-- <link href="{{ public_url('css/tailwindOutput.css') }}" rel="stylesheet"> --}}
-    <link href="{{ public_url('webfonts/webfont-articulat.css') }}" rel="stylesheet">
+    {{-- <link href="{{ public_url('webfonts/webfont-articulat.css') }}" rel="stylesheet"> --}}
     <script src="{{ public_url('js/jquery-3.7.1.min.js') }}"></script>
-    <script src="{{ public_url('js/app.js') }}"></script>
+    {{-- <script src="{{ public_url('js/app.js') }}"></script> --}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     {{-- <script defer src="{{ asset('js/alpine.min.js') }}"></script> --}}
@@ -34,9 +33,14 @@
             font-family: 'Poppins', sans-serif;
         }
     </style>
+
+    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+    {{-- <script type="module" src="https://foundandscan.co.bd:5173/@vite/client"></script>
+    <link rel="stylesheet" href="https://foundandscan.co.bd:5173/resources/css/app.css" />
+    <script type="module" src="https://foundandscan.co.bd:5173/resources/js/app.js"></script> --}}
 </head>
 
-<body class="{{ body_class('bg-white dark:bg-dark') }}">
+<body {{ body_class('bg-white dark:bg-dark') }}>
     {!! wp_body_open() !!}
 
     {{-- start::header --}}
@@ -47,11 +51,16 @@
     @yield('content')
     {{-- end::content --}}
 
-    <main id="main" class="{{ theme_class() }}">
+    <main id="main" class="{{ theme_class('py-24') }}">
         {{-- start::body --}}
         @yield('body')
         {{-- end::body --}}
     </main>
+
+
+    {{-- start::footer --}}
+    @include('layouts.footer')
+    {{-- end::footer --}}
 
     {!! wp_footer() !!}
     {{-- start::scripts --}}

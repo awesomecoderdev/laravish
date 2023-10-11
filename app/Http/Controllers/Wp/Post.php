@@ -11,11 +11,11 @@ class Post extends Controller
      */
     public function __construct()
     {
-        if ( ! empty($GLOBALS['post'])) {
+        if (!empty($GLOBALS['post'])) {
             setup_postdata($GLOBALS['post']);
             global $post;
-            if ($post->post_type=="product") {
-                $post->post_content.="[add_to_cart id=$post->ID]";
+            if ($post->post_type == "product") {
+                $post->post_content .= "[add_to_cart id=$post->ID]";
             }
         }
     }

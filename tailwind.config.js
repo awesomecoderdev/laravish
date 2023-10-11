@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ["./resources/views/**/*.{html,js,php}", "/woocommerce/*.php"],
+    content: [
+        "./resources/views/**/*.{html,js,php}",
+        "/woocommerce/*.php",
+        "/hooks/*.php",
+    ],
     // content: [
     //     "./resources/**/*.blade.php",
     //     "./resources/**/*.js",

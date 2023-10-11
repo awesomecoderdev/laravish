@@ -1,21 +1,23 @@
-@extends('layouts.master')
+@extends('layouts.app')
 
-@section('content')
+@section('body')
     <div class="main-content">
         <article class="article">
-            <header class="article__header">
-                @if($post->hasPostThumbnail)
-                    <img src="{{ $post->thumbnail->url }}" class="post-thumbnail">
-                @endif
+            @if (isset($post))
+                <header class="article__header">
+                    @if ($post->hasPostThumbnail)
+                        <img src="{{ $post->thumbnail->url }}" class="post-thumbnail">
+                    @endif
 
-                <h1 class="text--lg">{{ $post->title }}</h1>
-                <time datetime="{{ $post->dateTime }}">{{ $post->date }} | {{ $post->time }}</time>
-                <span>( By. {{ $post->author->nickname }} )</span>
-            </header>
+                    <h1 class="text--lg">{{ $post->title }}</h1>
+                    <time datetime="{{ $post->dateTime }}">{{ $post->date }} | {{ $post->time }}</time>
+                    <span>( By. {{ $post->author->nickname }} )</span>
+                </header>
 
-            <div class="article__content">
-                {!! $post->content !!}
-            </div>
+                <div class="article__content">
+                    {!! $post->content !!}
+                </div>
+            @endif
         </article>
     </div>
 @endsection
