@@ -23,6 +23,7 @@ class Home extends Controller
             // ]
         ]);
 
+        // dd($posts->posts);
         $data = [
             'version' => app()->version(),
             'assets' => get_template_directory_uri(),

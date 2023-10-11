@@ -51,7 +51,7 @@
     @yield('content')
     {{-- end::content --}}
 
-    <main id="main" class="{{ theme_class('py-24') }}">
+    <main id="main" class="{{ theme_class() }}">
         {{-- start::body --}}
         @yield('body')
         {{-- end::body --}}
