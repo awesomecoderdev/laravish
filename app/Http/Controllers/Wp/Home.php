@@ -23,6 +23,21 @@ class Home extends Controller
             // ]
         ]);
 
+        $pages = new \WP_Query([
+            'post_type' => 'post',
+            'posts_per_page' => 5,
+            // 'posts_per_page'    => -1, // Set to -1 to get all posts
+            // 'order_by'          => "name",
+            // 'order'             => "ASC"
+            // 'tax_query' => [
+            //     [
+            //         'taxonomy' => 'category',
+            //         'field' => 'id',
+            //         'terms' => $category->term_id
+            //     ]
+            // ]
+        ]);
+
         // dd($posts->posts);
         $data = [
             'version' => app()->version(),
@@ -30,7 +45,9 @@ class Home extends Controller
             'nav' => wp_get_nav_menu_items('Menü header#01: Die vier ersten'),
             'nav2' => wp_get_nav_menu_items('Menü footer#01: Die zwei letzten'),
             'posts' => $posts,
+            'pages' => $pages,
         ];
+
 
         return $this->view('wp.home', $data);
     }

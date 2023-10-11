@@ -14,8 +14,9 @@ use Illuminate\Foundation\Http\Events\RequestHandled;
 | instead of starting the framework, which could cause an exception.
 |
 */
-if (defined('WPINC') && file_exists(THEME_PATH."/storage/framework/maintenance.php")) {
-    require THEME_PATH.'/storage/framework/maintenance.php';
+
+if (defined('WPINC') && file_exists(THEME_PATH . "/storage/framework/maintenance.php")) {
+    require THEME_PATH . '/storage/framework/maintenance.php';
 }
 
 /*
@@ -28,7 +29,7 @@ if (defined('WPINC') && file_exists(THEME_PATH."/storage/framework/maintenance.p
 | into the script here so we don't need to manually load our classes.
 |
 */
-if (defined('WPINC') && file_exists(THEME_PATH."vendor/autoload.php")) {
+if (defined('WPINC') && file_exists(THEME_PATH . "vendor/autoload.php")) {
     require  THEME_PATH . "vendor/autoload.php";
 }
 
@@ -42,7 +43,7 @@ if (defined('WPINC') && file_exists(THEME_PATH."vendor/autoload.php")) {
 | into the script here so we don't need to manually load our classes.
 |
 */
-if (defined('WPINC') && file_exists(THEME_PATH."hook/helper.php")) {
+if (defined('WPINC') && file_exists(THEME_PATH . "hook/helper.php")) {
     require  THEME_PATH . "hook/helper.php";
 }
 
@@ -56,7 +57,7 @@ if (defined('WPINC') && file_exists(THEME_PATH."hook/helper.php")) {
 | into the script here so we don't need to manually load our classes.
 |
 */
-if (defined('WPINC') && file_exists(THEME_PATH."hook/filter.php")) {
+if (defined('WPINC') && file_exists(THEME_PATH . "hook/filter.php")) {
     require  THEME_PATH . "hook/filter.php";
 }
 
@@ -70,7 +71,7 @@ if (defined('WPINC') && file_exists(THEME_PATH."hook/filter.php")) {
 | into the script here so we don't need to manually load our classes.
 |
 */
-if (defined('WPINC') && file_exists(THEME_PATH."hook/action.php")) {
+if (defined('WPINC') && file_exists(THEME_PATH . "hook/action.php")) {
     require  THEME_PATH . "hook/action.php";
 }
 
@@ -84,7 +85,7 @@ if (defined('WPINC') && file_exists(THEME_PATH."hook/action.php")) {
 | into the script here so we don't need to manually load our classes.
 |
 */
-if (defined('WPINC') && file_exists(THEME_PATH."hook/woocommerce.php")) {
+if (defined('WPINC') && file_exists(THEME_PATH . "hook/woocommerce.php")) {
     require  THEME_PATH . "hook/woocommerce.php";
 }
 
@@ -99,7 +100,7 @@ if (defined('WPINC') && file_exists(THEME_PATH."hook/woocommerce.php")) {
 |
 */
 
-if (defined('WPINC') && file_exists(THEME_PATH."bootstrap/app.php")) {
+if (defined('WPINC') && file_exists(THEME_PATH . "bootstrap/app.php")) {
     $app = require_once THEME_PATH . 'bootstrap/app.php';
 
     $kernel = $app->make(Kernel::class);
@@ -125,10 +126,11 @@ if (defined('WPINC') && file_exists(THEME_PATH."bootstrap/app.php")) {
 |
 */
 add_action('after_setup_theme', 'mlh_after_setup_theme');
-if(!function_exists("mlh_after_setup_theme")){
-    function mlh_after_setup_theme(){
-        if(file_exists(THEME_PATH."hook/support.php")){
-		    require_once THEME_PATH . "hook/support.php";
+if (!function_exists("mlh_after_setup_theme")) {
+    function mlh_after_setup_theme()
+    {
+        if (file_exists(THEME_PATH . "hook/support.php")) {
+            require_once THEME_PATH . "hook/support.php";
         }
     }
 }

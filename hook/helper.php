@@ -95,3 +95,26 @@ if (!function_exists('theme_class')) {
         return "$default $extra";
     }
 }
+
+
+/**
+ * The theme_asset function.
+ *
+ * @since             1.0.0
+ *
+ */
+if (!function_exists('theme_asset')) {
+    function theme_asset(string $path = "")
+    {
+        $path = substr($path, 0, 1) === "/" ? "$path" : "/$path";
+        $path = substr(str_replace("//", "/", $path), 1);
+        // Original function implementation
+        if (file_exists(THEME_PATH . "public/$path")) {
+            return THEME_URL . "public/$path";
+        } else if (file_exists(THEME_PATH . "$path")) {
+            return THEME_URL . "$path";
+        } else {
+            return $path;
+        }
+    }
+}
