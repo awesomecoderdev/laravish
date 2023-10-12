@@ -20,8 +20,8 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     {{-- <script defer src="{{ public_url('js/alpine.min.js') }}"></script> --}}
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
-    {!! wp_head() !!}
     {{-- start::head --}} @yield('head') {{-- end::head --}}
+    {!! wp_head() !!}
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

@@ -38,7 +38,25 @@ class Home extends Controller
             // ]
         ]);
 
-        // dd($posts->posts);
+
+        $sliders = new \WP_Query([
+            'post_type' => 'post',
+            'posts_per_page' => 5,
+            // 'posts_per_page'    => -1, // Set to -1 to get all posts
+            // 'order_by'          => "name",
+            // 'order'             => "ASC"
+            'meta_key' => '_slider',
+            // 'orderby' => 'meta_value_num',
+            // 'order' => 'ASC',
+            'meta_query' => [
+                [
+                    'key' => '_slider',
+                    'value' => "on",
+                ],
+            ],
+        ]);
+
+        // dd($sliders->posts);
         $data = [
             'version' => app()->version(),
             'assets' => get_template_directory_uri(),
@@ -46,8 +64,8 @@ class Home extends Controller
             'nav2' => wp_get_nav_menu_items('Menü footer#01: Die zwei letzten'),
             'posts' => $posts,
             'pages' => $pages,
+            'sliders' => $sliders
         ];
-
 
         return $this->view('wp.home', $data);
     }

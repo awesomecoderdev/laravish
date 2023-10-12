@@ -1,29 +1,50 @@
 @extends('layouts.app')
+@section('head')
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+@endsection
 @section('content')
-    <div class="relative w-full bg-zinc-100 lg:px-4 sm:px-5 xs:px-5 px-4 pt-10">
-        <div class="relative h-full w-full max-w-6xl mx-auto py-6 flex items-center">
-            <div class="relative w-full">
-                <div class="relative h-full space-y-2  py-4">
-                    <p class="text-lg font-semibold">Personlich,chenell,bequen</p>
-                    <h1 class="text-zinc-800 lg:text-5xl md:text-4xl text-3xl font-extrabold text-balance max-w-sm py-4">
-                        Deine Sachen
-                        Zuruck zu Dir
-                    </h1>
-                    <br>
-                    <a href="#"
-                        class=" bg-blue-300 mt-6 px-3 py-2 rounded-full text-white text-sm font-semibold border border-slate-100">
-                        Get yours now
-                    </a>
-                </div>
-                <div class="relative w-full flex gap-2 justify-center items-center pt-6">
-                    <div class="h-4 w-4 rounded-full border-2 cursor-pointer border-pink-600 bg-pink-600"></div>
-                    <div class="h-4 w-4 rounded-full border-2 cursor-pointer border-pink-600"></div>
-                    <div class="h-4 w-4 rounded-full border-2 cursor-pointer border-pink-600"></div>
-                    <div class="h-4 w-4 rounded-full border-2 cursor-pointer border-pink-600"></div>
-                </div>
-            </div>
+
+    <!-- Slider main container -->
+    <div class="relative w-full bg-zinc-100 swiper _slider  overflow-hidden">
+
+        <div class="relative h-full w-full  flex items-center swiper-wrapper">
+            @if ($sliders->have_posts())
+                @php $sliders_count = 0; @endphp
+                @while ($sliders->have_posts())
+                    @php $sliders->the_post(); @endphp
+                    @php $sliders_count++; @endphp
+                    <div class="relative w-full swiper-slide lg:py-24 md:pt-14 pt-8 bg-center bg-cover bg-no-repeat md:pb-24 pb-16"
+                        style="background-image: url({{ get_the_post_thumbnail_url() }})">
+                        <div class="relative h-full max-w-6xl px-4 mx-auto space-y-2 lg:py-4 py-1">
+                            <p class="text-lg font-semibold line-clamp-2 text-balance max-w-xs">{{ get_the_title() }} lorem
+                            </p>
+                            <h1
+                                class="text-zinc-800 lg:text-5xl md:text-4xl text-3xl font-extrabold text-balance max-w-lg lg:py-4 py-1">
+                                {{ get_post_meta(get_the_ID(), '_slider_title', true) != '' ? Str::limit(get_post_meta(get_the_ID(), '_slider_title', true), 25, '...') : ' Deine Sachen Zuruck zu Dir' }}
+                            </h1>
+                            <br>
+                            <a href="{{ get_post_meta(get_the_ID(), '_slider_link', true) }}"
+                                class=" bg-blue-400 mt-6 px-4 py-2 rounded-full text-white text-sm font-semibold ">
+                                {{ get_post_meta(get_the_ID(), '_slider_button', true) }}
+                            </a>
+                        </div>
+                    </div>
+                @endwhile
+            @endif
         </div>
+        <div class="swiper-pagination"></div>
+
     </div>
+    <script>
+        //  Initialize Swiper
+        let swiper = new Swiper("._slider", {
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    </script>
 
     <section class="relative bg-gradient-to-b from-primary ">
         <div class=" {{ theme_class('lg:pt-16 pt-10') }}">
@@ -38,6 +59,15 @@
                         @php $posts_count++; @endphp
                         <div
                             class="relative lg:col-span-1 {{ $posts_count > 2 ? 'md:col-span-2' : '' }} h-auto border border-slate-100 rounded overflow-hidden shadow-lg">
+                            <div
+                                class="absolute -left-5 flex justify-center items-end h-full w-56 bg-gradient-to-r from-white z-10">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit possimus est distinctio labore
+                                laborum! Iusto quod voluptatem eius unde animi eveniet quo. Repellat placeat quae quo. Illo
+                                asperiores eius nesciunt.
+                            </div>
+                            <div
+                                class="absolute -left-5 flex justify-center items-end h-full w-56 bg-gradient-to-r from-white z-10">
+                            </div>
                             <a href="{{ get_the_permalink() }}"
                                 class="block relative lg:aspect-[6/3] {{ $posts_count > 2 ? 'md:aspect-[7/3]' : '' }} aspect-[4/2] bg-zinc-100 bg-no-repeat bg-cover bg-center border-b border-slate-100"
                                 style="background-image: url({{ get_the_post_thumbnail_url() }})">
@@ -197,15 +227,16 @@
     </section>
 
     <section class="relative py-14">
-        <div class="relative max-w-7xl w-full min-h-[30rem] mx-auto flex justify-end items-center overflow-hidden">
-            <div class="absolute inset-0 bg-cover bg-no-repeat bg-[-25rem_center] drop-shadow-2xl shadow-2xl z-[5]"
+        <div
+            class="relative max-w-7xl w-full lg:min-h-[30rem] md:min-h-[25rem] mx-auto flex justify-end items-center overflow-hidden">
+            <div class="absolute inset-0 bg-cover bg-no-repeat md:bg-[-25rem_center] drop-shadow-2xl shadow-2xl z-[5]"
                 style="background-image: url({{ theme_asset('images/building.png') }});">
             </div>
             <div class="absolute -left-5 flex justify-center items-end h-full w-56 bg-gradient-to-r from-white z-10">
             </div>
             <div class="absolute -left-5 flex justify-center items-end h-full w-56 bg-gradient-to-r from-white z-10">
             </div>
-            <div class="{{ theme_class(' h-60 w-full flex justify-end items-center  p-4') }}">
+            <div class="{{ theme_class('md:h-60 h-96 w-full flex justify-end items-center p-4') }}">
                 <div class="absolute inset-0 bg-indigo-400 shadow-indigo-400 drop-shadow-xl shadow-2xl z-0"></div>
                 <div class="relative h-full w-full max-w-lg z-20 p-4 space-y-3">
                     <span class="text-5xl font-semibold text-highlight">B2B</span>
@@ -215,9 +246,9 @@
                     </p>
                 </div>
                 <a href="#"
-                    class="absolute underline z-20 cursor-pointer text-xs text-zinc-100 bottom-4 right-6">Learn more</a>
+                    class="absolute underline z-20 cursor-pointer text-xs md:text-zinc-100 text-highlight bottom-4 right-6">Learn
+                    more</a>
             </div>
         </div>
-
     </section>
 @endsection
