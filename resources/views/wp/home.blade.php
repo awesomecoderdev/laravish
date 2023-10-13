@@ -63,15 +63,6 @@
                         @php $posts_count++; @endphp
                         <div
                             class="relative lg:col-span-1 {{ $posts_count > 2 ? 'md:col-span-2' : '' }} h-auto border border-slate-100 rounded overflow-hidden shadow-lg">
-                            <div
-                                class="absolute -left-5 flex justify-center items-end h-full w-56 bg-gradient-to-r from-white z-10">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit possimus est distinctio labore
-                                laborum! Iusto quod voluptatem eius unde animi eveniet quo. Repellat placeat quae quo. Illo
-                                asperiores eius nesciunt.
-                            </div>
-                            <div
-                                class="absolute -left-5 flex justify-center items-end h-full w-56 bg-gradient-to-r from-white z-10">
-                            </div>
                             <a href="{{ get_the_permalink() }}"
                                 class="block relative lg:aspect-[6/3] {{ $posts_count > 2 ? 'md:aspect-[7/3]' : '' }} aspect-[4/2] bg-zinc-100 bg-no-repeat bg-cover bg-center border-b border-slate-100"
                                 style="background-image: url({{ get_the_post_thumbnail_url() }})">
@@ -80,10 +71,6 @@
                                 <a href="{{ get_the_permalink() }}" class="relative block  p-3">
                                     <h1 class="line-clamp-2 text-sm font-semibold text-zinc-800">
                                         {{ get_the_title() }}
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur recusandae quia
-                                        veniam
-                                        magnam magni odio reprehenderit facere, doloribus minus at corporis necessitatibus
-                                        labore ullam quas consequatur autem nihil est cupiditate?
                                     </h1>
                                 </a>
                                 <div class="relative border-t border-slate-100 pb-1">
