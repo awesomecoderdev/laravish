@@ -112,7 +112,6 @@ add_filter("nav_menu_css_class", "add_class_on_nav_menu_list_items", 10, 3);
 function add_class_on_nav_menu_list_items($classes, $item, $args)
 {
     $classes[] = strtolower($item->title);
-
     if (!in_array('current-menu-item', $classes)) {
         if (in_array('current_page_item', $classes)) {
             $classes[] = 'text-primary-500 dark:text-white';
@@ -134,8 +133,10 @@ add_filter("nav_menu_link_attributes", "add_class_on_nav_menu_list_items_link", 
 function add_class_on_nav_menu_list_items_link($classes, $item, $args)
 {
     if ('primary' === $args?->theme_location || is_null($args?->theme_location)) {
-        $class =  "relative flex justify-center text-sm font-semibold uppercase items-center text-zinc-900 location-$args?->theme_location ";
+        $class =  "relative lg:flex lg:justify-center text-sm font-semibold uppercase items-center text-zinc-900 location-$args?->theme_location ";
         $classes["class"] = isset($args->has_children) ? "text-sm lending-5 $class" : "$class";
+    } else {
+        $classes["class"] = "location-$args?->theme_location";
     }
     return $classes;
 }

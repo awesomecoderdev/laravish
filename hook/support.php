@@ -39,6 +39,16 @@ register_nav_menus(array(
     'primary' => __('Primary Menu'),
 ));
 
+/**
+ * Register the nav menu for the admin area.
+ *
+ * @since    1.0.0
+ */
+register_nav_menus(array(
+    'right' => __('Right Menu'),
+));
+
+
 
 /**
  * ======================================================================================

@@ -27,3 +27,22 @@
 .swiper-pagination-bullet-active {
     @apply bg-pink-500;
 }
+
+.right-navigation li {
+    @apply font-semibold;
+}
+
+.right-navigation li.current-menu-item {
+    @apply text-primary;
+}
+.right-navigation li ul {
+    @apply hidden;
+}
+
+.right-navigation a.location-primary {
+    @apply max-lg:text-white;
+}
+
+.right-navigation li.current-menu-item a.location-primary {
+    @apply text-primary;
+}
