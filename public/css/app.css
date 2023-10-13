@@ -12909,6 +12909,12 @@ div.header {
     display: none;
 }
 
+.hamburgernav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 footer {
     position: fixed;
     display: flex;
