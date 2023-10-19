@@ -113,10 +113,10 @@ add_action("admin_enqueue_scripts", function ($hook) {
     wp_enqueue_media();
     $taxonomy = isset($_GET["taxonomy"]) ? strtolower($_GET["taxonomy"]) : "";
 
-    if (in_array($hook, ["edit-tags.php"]) && in_array($taxonomy, ["slider"])) {
-        wp_enqueue_style("admin", public_url("css/admin.css"), [], md5(time()), "all");
-    }
+    // if (in_array($hook, ["edit-tags.php"]) && in_array($taxonomy, ["slider"])) {
+    //     wp_enqueue_style("admin", public_url("css/admin.css"), [], md5(time()), "all");
+    // }
 
-
+    wp_enqueue_style("admin", public_url("css/admin.css"), [], md5(time()), "all");
     wp_enqueue_script("admin", public_url("js/admin.js"), [], md5(time()), true);
 }, 999999999);

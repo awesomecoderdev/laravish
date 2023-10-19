@@ -1,6 +1,5 @@
 <?php
 add_action('slider_add_form_fields', 'usegroup_add_slider_fields');
-add_action('category_edit_form_fields', 'usegroup_add_slider_fields', 10);
 function usegroup_add_slider_fields($term)
 {
 	$slider_button = "";
@@ -36,6 +35,63 @@ function usegroup_add_slider_fields($term)
 		</script>
 		<div class="clear"></div>
 	</div>
+<?php
+}
+add_action('slider_edit_form_fields', 'usegroup_edit_slider_fields', 10);
+function usegroup_edit_slider_fields($term)
+{
+	$slider_button = "";
+	$slider_link = "";
+
+	if (isset($term->term_id)) {
+		$slider_link = get_term_meta($term->term_id, '_slider_link', true);
+		$slider_button = get_term_meta($term->term_id, '_slider_button', true);
+		$thumbnail_id = absint(get_term_meta($term->term_id, 'thumbnail_id', true));
+		if ($thumbnail_id) {
+			$image = wp_get_attachment_url($thumbnail_id);
+		}
+		$placeholder = public_url("img/placeholder.png");
+	}
+
+?>
+
+	<table class="form-table" role="presentation">
+		<tbody>
+			<tr class="form-field form-required term-name-wrap">
+				<th scope="row">
+					<label for="tag-slider-button">
+						<?php _e("Slider Button", "usegroup") ?>
+					</label>
+				</th>
+				<td>
+					<input id="tag-slider-button" type="text" value="<?php echo $slider_button != "" ? $slider_button : __("Get Now") ?>" name="_slider_button" placeholder="<?php _e("Slider Button") ?>">
+				</td>
+			</tr>
+			<tr class="form-field form-required term-name-wrap">
+				<th scope="row">
+					<label for="tag-slider-link"><?php _e("Slider Link", "usegroup") ?></label>
+				</th>
+				<td>
+					<input id="tag-slider-link" type="text" value="<?php echo $slider_link != "" ? $slider_link : site_url("/") ?>" name="_slider_link" placeholder="<?php _e("Slider Link") ?>">
+				</td>
+			</tr>
+			<tr class="form-field form-required term-name-wrap">
+				<th scope="row">
+					<label><?php _e("Slider Image", "usegroup") ?></label>
+				</th>
+				<td>
+					<div class="relative">
+						<input type="hidden" id="slider_thumbnail_id" value="<?php echo $thumbnail_id; ?>" name="slider_thumbnail_id" />
+						<div id="slider_thumbnail" style="background-image: url(<?php echo isset($image) && $image != null ? $image : "" ?>);">
+							<img src="<?php echo $placeholder; ?>" <?php echo isset($image) && $image != null ? "style='z-index: -1;'" : "" ?> id="slider_thumbnail_placeholder" style="height: 50px;" alt="">
+						</div>
+					</div>
+					<div class="clear"></div>
+				</td>
+			</tr>
+
+		</tbody>
+	</table>
 <?php
 }
 

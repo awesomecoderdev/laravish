@@ -1,4 +1,4 @@
-#slider_thumbnail {
+.taxonomy-slider #slider_thumbnail {
     width: 400px;
     height: 200px;
     background-color: white;
@@ -12,6 +12,6 @@
     justify-content: center;
     align-items: center;
 }
-.term-slug-wrap {
+.taxonomy-slider .term-slug-wrap {
     display: none;
 }
