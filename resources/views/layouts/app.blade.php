@@ -13,9 +13,8 @@
     <link href="{{ public_url('css/fontawesome.css') }}" rel="stylesheet">
     {{-- <link href="{{ public_url('css/brands.css') }}" rel="stylesheet"> --}}
     {{-- <link href="{{ public_url('css/solid.css') }}" rel="stylesheet"> --}}
-<!--vite 1 https://owenconti.com/posts/replacing-laravel-mix-with-vite -->
+    <!--vite 1 https://owenconti.com/posts/replacing-laravel-mix-with-vite -->
     @vite
-    <link rel="stylesheet" href="{{ public_url('dist/css/app.css') }}">
     {{-- <link href="{{ public_url('webfonts/webfont-articulat.css') }}" rel="stylesheet"> --}}
     <script src="{{ public_url('js/jquery-3.7.1.min.js') }}"></script>
     {{-- <script src="{{ public_url('js/app.js') }}"></script> --}}
@@ -36,6 +35,8 @@
             font-family: 'Poppins', sans-serif;
         }
     </style>
+
+    <link rel="stylesheet" href="{{ public_url('dist/css/app.css') }}">
 
 </head>
 

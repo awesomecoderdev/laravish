@@ -77,6 +77,20 @@ if (defined('WPINC') && file_exists(THEME_PATH . "hook/action.php")) {
 
 /*
 |--------------------------------------------------------------------------
+| Register Theme Taxonomy
+|--------------------------------------------------------------------------
+|
+| Composer provides a convenient, automatically generated class loader for
+| this application. We just need to utilize it! We'll simply require it
+| into the script here so we don't need to manually load our classes.
+|
+*/
+if (defined('WPINC') && file_exists(THEME_PATH . "hook/taxonomies.php")) {
+    require  THEME_PATH . "hook/taxonomies.php";
+}
+
+/*
+|--------------------------------------------------------------------------
 | Register Woocommerce Filter
 |--------------------------------------------------------------------------
 |

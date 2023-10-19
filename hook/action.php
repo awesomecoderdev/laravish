@@ -82,3 +82,43 @@ if (!function_exists("_slider_save_meta_box")) {
         }
     }
 }
+
+
+function register_slider_taxonomy_to_post()
+{
+    $labels = array(
+        'name' => 'Sliders',
+        'singular_name' => 'Slider',
+        'menu_name' => 'Sliders',
+        'all_items' => 'All Sliders',
+        'edit_item' => 'Edit Slider',
+        'view_item' => 'View Slider',
+        'update_item' => 'Update Slider',
+        'add_new_item' => 'Add New Slider',
+        'new_item_name' => 'New Slider Name',
+        'search_items' => 'Search Sliders',
+        'popular_items' => 'Popular Sliders',
+        'separate_items_with_commas' => 'Separate sliders with commas',
+        'add_or_remove_items' => 'Add or remove sliders',
+        'choose_from_most_used' => 'Choose from the most used sliders',
+        'not_found' => 'No sliders found',
+        'no_terms' => 'No sliders',
+        'items_list' => 'Custom Slider list',
+        'items_list_navigation' => 'Custom Slider list navigation',
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'hierarchical' => false, // Set this to false for a non-hierarchical (tag-like) taxonomy.
+        'public' => false,
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'query_var' => true,
+        // The 'rewrite' argument is omitted here to let WordPress generate the slug.
+        'show_tagcloud' => false, // Show in the tag cloud widget.
+        'show_in_rest' => false, // Enable support in the WordPress REST API.
+    );
+
+    register_taxonomy('slider', array('post'), $args);
+}
+add_action('init', 'register_slider_taxonomy_to_post');
