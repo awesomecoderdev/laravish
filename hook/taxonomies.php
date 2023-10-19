@@ -83,8 +83,6 @@ function custom_slider_column($columns, $column, $id)
 
 	if ('_thumb' === $column) {
 		// Prepend tooltip for default slider.
-		$default_slider_id = absint(get_option('default_category', 0));
-
 		$thumbnail_id = get_term_meta($id, 'thumbnail_id', true);
 
 		if ($thumbnail_id) {
