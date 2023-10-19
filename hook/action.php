@@ -119,6 +119,6 @@ function register_slider_taxonomy_to_post()
         'show_in_rest' => false, // Enable support in the WordPress REST API.
     );
 
-    register_taxonomy('slider', array('post'), $args);
+    register_taxonomy('register_slider_taxonomy_to_post', array('post'), $args);
 }
-// add_action('init', 'register_slider_taxonomy_to_post');
+add_action('init', 'register_slider_taxonomy_to_post');
