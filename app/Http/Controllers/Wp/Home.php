@@ -39,24 +39,39 @@ class Home extends Controller
         ]);
 
 
-        $sliders = new \WP_Query([
-            'post_type' => 'post',
-            'posts_per_page' => 5,
-            // 'posts_per_page'    => -1, // Set to -1 to get all posts
-            // 'order_by'          => "name",
-            // 'order'             => "ASC"
-            'meta_key' => '_slider',
-            // 'orderby' => 'meta_value_num',
-            // 'order' => 'ASC',
-            'meta_query' => [
-                [
-                    'key' => '_slider',
-                    'value' => "on",
-                ],
-            ],
-        ]);
+        // $sliders = new \WP_Query([
+        //     'post_type' => 'post',
+        //     'posts_per_page' => 5,
+        //     // 'posts_per_page'    => -1, // Set to -1 to get all posts
+        //     // 'order_by'          => "name",
+        //     // 'order'             => "ASC"
+        //     'meta_key' => '_slider',
+        //     // 'orderby' => 'meta_value_num',
+        //     // 'order' => 'ASC',
+        //     'meta_query' => [
+        //         [
+        //             'key' => '_slider',
+        //             'value' => "on",
+        //         ],
+        //     ],
+        // ]);
 
-        // dd($sliders->posts);
+        $sliders = new \WP_Term_Query([
+            'taxonomy'      => 'slider', // Taxonomy for product categories
+            'title_li'      => '', // Remove the default title
+            'orderby'       => 'count', // Order by the number of products
+            'order'         => 'DESC',  // Descending order (most products first)
+            // 'child_of'      => 0,
+            // 'parent'        => 0,
+            'fields'        => 'all',
+            'hide_empty'    => false,
+            'number'        => 4,
+        ]);
+        // $terms = get_terms($args);
+        $sliders = $sliders->terms;
+        // $terms = $categories;
+
+        // dd($sliders);
         $data = [
             'version' => app()->version(),
             'assets' => get_template_directory_uri(),

@@ -118,3 +118,26 @@ if (!function_exists('theme_asset')) {
         }
     }
 }
+
+
+
+/**
+ * The get_the_slider_thumbnail_url function.
+ *
+ * @since             1.0.0
+ *
+ */
+if (!function_exists('get_the_slider_thumbnail_url')) {
+    function get_the_slider_thumbnail_url($term_id)
+    {
+        $thumbnail_id = get_term_meta($term_id, 'thumbnail_id', true);
+        if ($thumbnail_id) {
+            $image = wp_get_attachment_url($thumbnail_id);
+        } else {
+            // $image = public_url("img/placeholder.png");
+            $image = "";
+        }
+
+        return $image;
+    }
+}

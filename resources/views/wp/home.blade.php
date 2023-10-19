@@ -9,29 +9,24 @@
     <div class="relative w-full bg-zinc-100 swiper _slider  overflow-hidden">
 
         <div class="relative h-full w-full  flex items-center swiper-wrapper">
-            @if ($sliders->have_posts())
-                @php $sliders_count = 0; @endphp
-                @while ($sliders->have_posts())
-                    @php $sliders->the_post(); @endphp
-                    @php $sliders_count++; @endphp
-                    <div class="relative w-full swiper-slide lg:py-24 md:pt-14 pt-8 bg-center bg-cover bg-no-repeat md:pb-24 pb-16"
-                        style="background-image: url({{ get_the_post_thumbnail_url() }})">
-                        <div class="relative h-full max-w-6xl px-4 mx-auto space-y-2 lg:py-4 py-1">
-                            <p class="text-lg font-semibold line-clamp-2 text-balance max-w-xs">{{ get_the_title() }} lorem
-                            </p>
-                            <h1
-                                class="text-zinc-800 lg:text-5xl md:text-4xl text-3xl font-extrabold text-balance max-w-lg lg:py-4 py-1">
-                                {{ get_post_meta(get_the_ID(), '_slider_title', true) != '' ? Str::limit(get_post_meta(get_the_ID(), '_slider_title', true), 25, '...') : ' Deine Sachen Zuruck zu Dir' }}
-                            </h1>
-                            <br>
-                            <a href="{{ get_post_meta(get_the_ID(), '_slider_link', true) }}"
-                                class=" bg-blue-400 mt-6 px-4 py-2 rounded-full text-white text-sm font-semibold ">
-                                {{ get_post_meta(get_the_ID(), '_slider_button', true) }}
-                            </a>
-                        </div>
+            @foreach ($sliders as $slider)
+                <div class="relative w-full swiper-slide lg:py-24 md:pt-14 pt-8 bg-center bg-cover bg-no-repeat md:pb-24 pb-16"
+                    style="background-image: url({{ get_the_slider_thumbnail_url($slider->term_id) }})">
+                    <div class="relative h-full max-w-6xl px-4 mx-auto space-y-2 lg:py-4 py-1">
+                        <p class="text-lg font-semibold line-clamp-2 text-balance max-w-xs">{{ $slider->name }}
+                        </p>
+                        <h1
+                            class="text-zinc-800 lg:text-5xl md:text-4xl text-3xl font-extrabold text-balance max-w-lg lg:py-4 py-1">
+                            {{ Str::limit($slider->description, 25, '...') }}
+                        </h1>
+                        <br>
+                        <a href="{{ get_term_meta($slider->term_id, '_slider_link', true) }}"
+                            class=" bg-blue-400 mt-6 px-4 py-2 rounded-full text-white text-sm font-semibold ">
+                            {{ get_term_meta($slider->term_id, '_slider_button', true) }}
+                        </a>
                     </div>
-                @endwhile
-            @endif
+                </div>
+            @endforeach
         </div>
         <div class="swiper-pagination"></div>
 

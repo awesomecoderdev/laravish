@@ -64,11 +64,11 @@ function custom_slider_columns($columns)
 		// unset($columns['cb']);
 	}
 	unset($columns["slug"]);
-	unset($columns["description"]);
+	// unset($columns["description"]);
 	unset($columns["posts"]);
 	// unset($columns["name"]);
 
-	$new_columns['name'] = __('Name/Title', 'usegroup');
+	// $new_columns['name'] = __('Name/Title', 'usegroup');
 	$new_columns['_thumb'] = __('Image', 'usegroup');
 	$new_columns['_button'] = __('Text', 'usegroup');
 	$new_columns['_link'] = __('Link', 'usegroup');
