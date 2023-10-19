@@ -13,6 +13,9 @@
     <link href="{{ public_url('css/fontawesome.css') }}" rel="stylesheet">
     {{-- <link href="{{ public_url('css/brands.css') }}" rel="stylesheet"> --}}
     {{-- <link href="{{ public_url('css/solid.css') }}" rel="stylesheet"> --}}
+<!--vite 1 https://owenconti.com/posts/replacing-laravel-mix-with-vite -->
+    @vite
+    <link rel="stylesheet" href="{{ public_url('dist/css/app.css') }}">
     {{-- <link href="{{ public_url('webfonts/webfont-articulat.css') }}" rel="stylesheet"> --}}
     <script src="{{ public_url('js/jquery-3.7.1.min.js') }}"></script>
     {{-- <script src="{{ public_url('js/app.js') }}"></script> --}}
@@ -34,10 +37,6 @@
         }
     </style>
 
-    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
-    <script type="module" src="https://foundandscan.co.bd:5173/@vite/client"></script>
-    <link rel="stylesheet" href="https://foundandscan.co.bd:5173/resources/css/app.css" />
-    <script type="module" src="https://foundandscan.co.bd:5173/resources/js/app.js"></script>
 </head>
 
 <body {{ body_class('bg-white dark:bg-dark') }}>

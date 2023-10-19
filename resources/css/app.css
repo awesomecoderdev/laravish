@@ -46,3 +46,10 @@
 .right-navigation li.current-menu-item a.location-primary {
     @apply text-primary;
 }
+
+.site-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index:990;
+}

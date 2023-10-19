@@ -16,10 +16,10 @@
     <link href="{{ public_url('css/tailwindOutput.css') }}" rel="stylesheet">
     <link href="{{ public_url('webfonts/webfont-articulat.css') }}" rel="stylesheet">
     <script src="{{ public_url('js/jquery-3.7.1.min.js') }}"></script>
-    <script src="{{ public_url('js/app.js') }}"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @yield('head')
-
+<!--vitissimi-->
+    @vite
     <?php wp_head(); ?>
 </head>
 

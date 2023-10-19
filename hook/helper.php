@@ -58,7 +58,7 @@ if (!function_exists('clog')) {
 /**
  * The url_scheme function.
  *
- * @link              https://awesomecoder.dev/
+ * @link              https://foundandscan.com.de/
  * @since             1.0.0
  *
  */

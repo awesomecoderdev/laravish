@@ -9,19 +9,17 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Models\User;
 use Closure;
 
-class Authenticate extends Middleware
+class AuthenticationAware extends Middleware
 {
     /**
-     * Get the path the user should be redirected to when they are not authenticated.
+     * This set the user if logged in but unlike Authentication
+     * still permits to access the page by not redirecting to login if not
      *
      * @param  \Illuminate\Http\Request  $request
      * @return string|null
      */
     protected function redirectTo($request)
     {
-        if (! $request->expectsJson()) {
-            return route('login');
-        }
     }
 
     /**
@@ -34,15 +32,13 @@ class Authenticate extends Middleware
      */
     public function handle($request, $next, ...$guards): Response
     {
-        if (!is_user_logged_in()) {
-            return redirect('login');
-        }
 
         $allUsers=User::all();
         $username=wp_get_current_user()->user_login;
         $foundFasUser=$allUsers->where("name", $username)->first();
-        Auth::setUser($foundFasUser);
-
+        if ($foundFasUser!==null) {
+            Auth::setUser($foundFasUser);
+        }
 
         return $next($request);
     }

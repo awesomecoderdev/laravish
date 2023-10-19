@@ -82,8 +82,7 @@ class Tag extends Model
         // $writer->writeFile('http://127.0.0.1/foundandscan/backend/public/sighting/' . $id, 'qrcode.svg');`
         $svgString = $writer->writeString($sightingURL);
         $image = new SVG(1200, 400);
-//die(file_get_contents("/Users/jstaerk/projekte/homepages/foundandscan/shop/wp-content/themes/laratheme/app/Models/fasqrbackground.svg"));
-        $img = SVGImage::fromFile("/Users/jstaerk/projekte/homepages/foundandscan/shop/wp-content/themes/laratheme/app/Models/fasqrbackground.svg", "image/svg+xml");
+        $img = SVGImage::fromFile(dirname(__file__)."/fasqrbackground.svg", "image/svg+xml");
         $image->getDocument()->addChild($img);
 
 
