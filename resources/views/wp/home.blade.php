@@ -84,7 +84,7 @@
 @section('body')
     <section class="relative lg:py-5 lg:mt-5">
         <h1 class="text-zinc-800 lg:text-5xl md:text-4xl text-3xl font-extrabold text-balance max-w-md py-4">
-            How it works
+            {!! $post->post_content !!}
         </h1>
         <div class="relative grid md:grid-cols-2 col-span-1 lg:gap-20 gap-8 lg:py-8">
             <a href="{{ get_the_permalink() }}" class="relative block h-auto border-slate-100">

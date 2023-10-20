@@ -70,7 +70,7 @@ class Home extends Controller
         // $terms = get_terms($args);
         $sliders = $sliders->terms;
         // $terms = $categories;
-
+        global $post;
         // dd($sliders);
         $data = [
             'version' => app()->version(),
@@ -78,9 +78,12 @@ class Home extends Controller
             'nav' => wp_get_nav_menu_items('Menü header#01: Die vier ersten'),
             'nav2' => wp_get_nav_menu_items('Menü footer#01: Die zwei letzten'),
             'posts' => $posts,
+            'post' => $post,
             'pages' => $pages,
             'sliders' => $sliders
         ];
+
+        // dd($post);
 
         return $this->view('wp.home', $data);
     }
