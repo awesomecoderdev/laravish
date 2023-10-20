@@ -1,0 +1,4 @@
+2023-10-19T08:54:53+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp8\htdocs\FASwordpress\wp-content\plugins\woocommerce\packages\woocommerce-blocks\src\BlockTypes\ProductTopRated.php in Zeile 2
+
+2023-10-19T12:35:29+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp8\htdocs\FASwordpress\wp-includes\class-wp-object-cache.php in Zeile 376
+

@@ -1,0 +1,21 @@
+2023-10-09T10:04:59+00:00 CRITICAL Uncaught Error: Failed opening required 'C:\xampp8\htdocs\foundandscan\laratheme/vendor/autoload.php' (include_path='C:\xampp8\php\PEAR') in C:\xampp8\htdocs\foundandscan\laratheme\functions.php:40
+Stack trace:
+#0 C:\xampp8\htdocs\FASwordpress\wp-settings.php(600): include()
+#1 C:\xampp8\htdocs\FASwordpress\wp-config.php(96): require_once('C:\\xampp8\\htdoc...')
+#2 C:\xampp8\htdocs\FASwordpress\wp-load.php(50): require_once('C:\\xampp8\\htdoc...')
+#3 C:\xampp8\htdocs\FASwordpress\wp-admin\admin.php(34): require_once('C:\\xampp8\\htdoc...')
+#4 C:\xampp8\htdocs\FASwordpress\wp-admin\themes.php(10): require_once('C:\\xampp8\\htdoc...')
+#5 {main}
+  thrown in C:\xampp8\htdocs\foundandscan\laratheme\functions.php on line 40
+
+2023-10-09T10:05:00+00:00 CRITICAL Uncaught Error: Failed opening required 'C:\xampp8\htdocs\foundandscan\laratheme/vendor/autoload.php' (include_path='C:\xampp8\php\PEAR') in C:\xampp8\htdocs\foundandscan\laratheme\functions.php:40
+Stack trace:
+#0 C:\xampp8\htdocs\FASwordpress\wp-settings.php(600): include()
+#1 C:\xampp8\htdocs\FASwordpress\wp-config.php(96): require_once('C:\\xampp8\\htdoc...')
+#2 C:\xampp8\htdocs\FASwordpress\wp-load.php(50): require_once('C:\\xampp8\\htdoc...')
+#3 C:\xampp8\htdocs\FASwordpress\wp-admin\admin-ajax.php(22): require_once('C:\\xampp8\\htdoc...')
+#4 {main}
+  thrown in C:\xampp8\htdocs\foundandscan\laratheme\functions.php on line 40
+
+2023-10-09T20:33:09+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp8\htdocs\FASwordpress\wp-content\plugins\woocommerce\includes\emails\class-wc-email.php on line 8
+
