@@ -14,7 +14,7 @@
     {{-- <link href="{{ public_url('css/brands.css') }}" rel="stylesheet"> --}}
     {{-- <link href="{{ public_url('css/solid.css') }}" rel="stylesheet"> --}}
     <!--vite 1 https://owenconti.com/posts/replacing-laravel-mix-with-vite -->
-    @vite
+    {{-- @vite --}}
     {{-- <link href="{{ public_url('webfonts/webfont-articulat.css') }}" rel="stylesheet"> --}}
     <script src="{{ public_url('js/jquery-3.7.1.min.js') }}"></script>
     {{-- <script src="{{ public_url('js/app.js') }}"></script> --}}
@@ -36,8 +36,13 @@
         }
     </style>
 
-    <link rel="stylesheet" href="{{ public_url('dist/css/app.css') }}">
+    {{-- <link rel="stylesheet" href="{{ public_url('dist/css/app.css') }}"> --}}
 
+
+    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+    <script type="module" src="https://foundandscan.co.bd:5173/@vite/client"></script>
+    <link rel="stylesheet" href="https://foundandscan.co.bd:5173/resources/css/app.css" />
+    <script type="module" src="https://foundandscan.co.bd:5173/resources/js/app.js"></script>
 </head>
 
 <body {{ body_class('bg-white dark:bg-dark') }}>
@@ -52,9 +57,25 @@
     {{-- end::content --}}
 
     <main id="main" class="{{ theme_class() }}">
+
+        {{-- start::content --}}
+        <div class="py-10">
+            @isset($header)
+                {!! $header !!}
+            @endisset
+        </div>
+        {{-- end::content --}}
+
         {{-- start::body --}}
         @yield('body')
         {{-- end::body --}}
+
+
+        {{-- start::content --}}
+        @isset($slot)
+            {!! $slot !!}
+        @endisset
+        {{-- end::content --}}
     </main>
 
     {{-- start::section --}}

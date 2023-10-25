@@ -5,7 +5,7 @@
 @endsection
 @section('content')
 
-    <!-- Slider main container -->
+    <!-- Slider main container -->/Users/mdibrahimkholil/Desktop/Projects/Laravel/backend/app/View
     <div class="relative w-full bg-zinc-100 swiper _slider  overflow-hidden">
 
         <div class="relative h-full w-full  flex items-center swiper-wrapper">

@@ -1,4 +1,4 @@
-<header class="site-header bg-primary" x-data="{ open: false, toggle() { this.open = !this.open; } }">
+<header class="site-header bg-primary z-[999999]" x-data="{ open: false, toggle() { this.open = !this.open; } }">
     <div class="relative max-w-6xl mx-auto h-auto lg:px-4 md:px-4 sm:px-5 xs:px-5 px-4 grid grid-cols-2 py-2.5 "
         @click.outside="open = false">
         <a href="{{ site_url('/') }}">
@@ -42,17 +42,18 @@
                 ]) !!}
             </nav>
 
-            <div class="relative right-navigation grid text-white font-semebold space-y-4"><ul>
+            <div class="relative right-navigation grid text-white font-semebold space-y-4">
+                <ul>
                     <li class="page_item page-item-3">
                         @auth
-                            <a href="{{route('tags.index')}}">
+                            <a href="{{ route('tags.index') }}">
                                 <div>{{ __('Fas-IDs') }}</div>
                             </a>
                             @if (Auth::user()->isAdmin())
-                                <a href="{{route('nutzer.index')}}">
+                                <a href="{{ route('nutzer.index') }}">
                                     <div>{{ __('Users') }}</div>
                                 </a>
-                                <a href="{{route('sichtungen.prompt')}}">
+                                <a href="{{ route('sichtungen.prompt') }}">
                                     <div>{{ __('Sichtungen') }}</div>
                                 </a>
                             @endif

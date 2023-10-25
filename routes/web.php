@@ -28,8 +28,9 @@ use App\Http\Controllers\Wp\Post;
 //});
 
 
-Route::get('/dashboard', function () {
-    return view('sightingPrompt');
+Route::get('/dashboards', function () {
+    // return view('sightingPrompt');
+    return view('dashboard');
 })->name("dashboard");
 
 // Route::get('language/{lang?}', function (Request $request) {
@@ -40,13 +41,13 @@ Route::get('/dashboard', function () {
 //     return redirect()->route("index");
 // })->name("changeLanguage");
 
-Route::group(['middleware' => ['auth', 'isAdmin']], function () {//
+Route::group(['middleware' => ['auth', 'isAdmin']], function () { //
     Route::get("/sichtungen/list", [SightingController::class, 'index'])->name("sichtungen");
     // nutzers routes for your application.
     Route::resource("nutzer", UserController::class);
 });
 
-Route::group(['middleware' => ['auth']], function () {//'auth',
+Route::group(['middleware' => ['auth']], function () { //'auth',
 
     Route::get('/tags', [TagController::class, 'index'])->name("tags.index");
     Route::post('/tags/store', [TagController::class, 'store'])->name("tags.store");
@@ -63,14 +64,14 @@ Route::group(['middleware' => ['authAware']], function () {
     Route::get('/activate/{id}', [ActivationController::class, 'index'])->name("activation.view");
     Route::post('/activate/{id}', [ActivationController::class, 'store'])->name("activation.send");
     Route::get('/download/{id}', [ActivationController::class, 'downloadSVG'])->name("activation.download");
-    Route::get('',[Home::class, 'index'])->name("shop");
+    Route::get('', [Home::class, 'index'])->name("shop");
 
 
     Route::get('feedback/{id}', [FeedbackController::class, 'index'])->name("feedback");
     Route::post('feedback', [FeedbackController::class, 'send'])->name("feedback.send");
-// need to explicitly mention those:
+    // need to explicitly mention those:
     Route::get('/wp-login.php')->name("login");
-    Route::get('/wp-login.php?action=logout',[FrontEndController::class,"index"])->name("logout");
-    Route::get('/my-account/lost-password/',[FrontEndController::class,"index"])->name("index");
-    Route::get('/register/{code}',[SightingController::class,"add"])->name("index");
+    Route::get('/wp-login.php?action=logout', [FrontEndController::class, "index"])->name("logout");
+    Route::get('/my-account/lost-password/', [FrontEndController::class, "index"])->name("index");
+    Route::get('/register/{code}', [SightingController::class, "add"])->name("index");
 });
