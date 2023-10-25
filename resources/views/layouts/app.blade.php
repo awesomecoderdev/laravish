@@ -40,7 +40,7 @@
 
 
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
-    <script type="module" src="https://foundandscan.co.bd:5173/@vite/client"></script>
+    {{-- <script type="module" src="https://foundandscan.co.bd:5173/@vite/client"></script> --}}
     <link rel="stylesheet" href="https://foundandscan.co.bd:5173/resources/css/app.css" />
     <script type="module" src="https://foundandscan.co.bd:5173/resources/js/app.js"></script>
 </head>

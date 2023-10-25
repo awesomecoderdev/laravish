@@ -1,17 +1,19 @@
 <?php
 
+use App\Models\Tag;
 use App\Http\Middleware\IsAdmin;
+use App\Http\Controllers\Wp\Home;
+use App\Http\Controllers\Wp\Page;
+use App\Http\Controllers\Wp\Post;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Wp\Page\Temp;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\SightingController;
 use App\Http\Controllers\ActivationController;
-use App\Http\Controllers\FeedbackController;
-use App\Http\Controllers\Wp\Home;
-use App\Http\Controllers\Wp\Page;
-use App\Http\Controllers\Wp\Post;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,7 +32,16 @@ use App\Http\Controllers\Wp\Post;
 
 Route::get('/dashboards', function () {
     // return view('sightingPrompt');
-    return view('dashboard');
+    $tags = [];
+
+    if (Auth::getUser()->isAdmin()) {
+        $tags = Tag::with(['client', 'user'])->orderBy("id", "DESC")->get();
+    } else {
+        $userid = Auth::getUser()->getAuthIdentifier();
+        $tags = Tag::with(['client', 'user'])->where("user_id", $userid)->orderBy("id", "DESC")->get();
+    }
+
+    return view('dashboard', compact("tags"));
 })->name("dashboard");
 
 // Route::get('language/{lang?}', function (Request $request) {
